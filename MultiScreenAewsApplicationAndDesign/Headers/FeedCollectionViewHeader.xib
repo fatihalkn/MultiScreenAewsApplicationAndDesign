@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FeedCollectionViewHeader" id="U6b-Vx-4bR" customClass="FeedCollectionViewHeader" customModule="MultiScreenAewsApplicationAndDesign" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="203"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6dr-Mb-FyH">
+                    <rect key="frame" x="0.0" y="0.0" width="384" height="203"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="GTQ-yI-GTv">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LZ8-v7-VPX">
+                    <rect key="frame" x="118" y="15" width="148" height="25"/>
+                    <color key="pageIndicatorTintColor" red="0.53725492949999998" green="0.52941179279999995" blue="0.50588238240000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pageControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="LZ8-v7-VPX" secondAttribute="trailing" constant="118" id="10w-LU-wMd"/>
+                <constraint firstAttribute="bottom" secondItem="6dr-Mb-FyH" secondAttribute="bottom" id="1JN-wC-kjS"/>
+                <constraint firstItem="LZ8-v7-VPX" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="15" id="78A-In-suH"/>
+                <constraint firstItem="6dr-Mb-FyH" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="Hp6-4s-EY6"/>
+                <constraint firstItem="LZ8-v7-VPX" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="118" id="JPu-8f-gOK"/>
+                <constraint firstItem="6dr-Mb-FyH" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="ZjQ-wj-Er8"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="LZ8-v7-VPX" secondAttribute="bottom" constant="129" id="tbK-ER-StZ"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="6dr-Mb-FyH" secondAttribute="trailing" id="teJ-Hg-nLC"/>
+            </constraints>
+            <connections>
+                <outlet property="headerCollectionView" destination="6dr-Mb-FyH" id="FWs-AM-ML7"/>
+                <outlet property="pageController" destination="LZ8-v7-VPX" id="q0S-0Z-X2T"/>
+            </connections>
+            <point key="canvasLocation" x="71.755725190839698" y="29.929577464788736"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

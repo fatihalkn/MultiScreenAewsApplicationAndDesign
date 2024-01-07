@@ -20,12 +20,12 @@
                         <rect key="frame" x="0.0" y="16" width="169" height="29"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
+                        <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" red="0.1176470518" green="0.1176470518" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="0Of-QQ-Egx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="3qu-K6-ghL"/>
                 <constraint firstAttribute="bottom" secondItem="0Of-QQ-Egx" secondAttribute="bottom" constant="16" id="Ncy-XZ-5Io"/>

@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,7 +22,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="avu-n0-vhI"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vxk-IG-f7q">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vxk-IG-f7q">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -201,15 +202,38 @@
             </objects>
             <point key="canvasLocation" x="172" y="1363"/>
         </scene>
-        <!--View Controller-->
+        <!--Save Controller-->
         <scene sceneID="ejJ-KT-hf1">
             <objects>
-                <viewController id="N3O-5X-mQ3" sceneMemberID="viewController">
+                <viewController id="N3O-5X-mQ3" customClass="SaveController" customModule="MultiScreenAewsApplicationAndDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hN9-Yc-Zt5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1XO-iY-qzB">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oci-Nn-5pS">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="xYW-ch-iht">
+                                <rect key="frame" x="0.0" y="103" width="393" height="239"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Wam-Nk-Urn"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Wam-Nk-Urn" firstAttribute="bottom" secondItem="1XO-iY-qzB" secondAttribute="bottom" id="3uI-f7-dDu"/>
+                            <constraint firstItem="1XO-iY-qzB" firstAttribute="top" secondItem="Wam-Nk-Urn" secondAttribute="top" id="9pR-Dg-8bF"/>
+                            <constraint firstItem="Wam-Nk-Urn" firstAttribute="trailing" secondItem="1XO-iY-qzB" secondAttribute="trailing" id="sUF-9U-U0G"/>
+                            <constraint firstItem="1XO-iY-qzB" firstAttribute="leading" secondItem="Wam-Nk-Urn" secondAttribute="leading" id="yoh-yX-aUN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E0b-ja-lVS">
                         <leftBarButtonItems>
@@ -233,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qm2-38-hgi" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1030" y="1363"/>
+            <point key="canvasLocation" x="1029.7709923664122" y="1362.6760563380283"/>
         </scene>
         <!--Profile-->
         <scene sceneID="7sS-vX-Fvr">
@@ -300,5 +324,8 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="square.and.arrow.down" catalog="system" width="112" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

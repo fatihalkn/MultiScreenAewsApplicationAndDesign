@@ -23,3 +23,15 @@ class Model {
         
     }
 }
+
+struct MenuModel {
+    let type: MenuType
+    let title: String
+}
+
+enum MenuType {
+    case tech
+    case science
+    case education
+    case business
+}

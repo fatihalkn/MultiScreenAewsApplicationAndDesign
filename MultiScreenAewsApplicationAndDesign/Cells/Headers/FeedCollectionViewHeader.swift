@@ -13,11 +13,8 @@ static let identifier = "FeedCollectionViewHeader"
     @IBOutlet weak var headerCollectionView: UICollectionView!
     
     @IBOutlet weak var pageController: UIPageControl!
-    var headerCollectionViewData: [String] = [
-        "1213",
-        "2313",
-        "2131"
-    ]
+    
+    var headerCollectionViewData = [Model]()
     
     var currentPage = 0
     
@@ -26,6 +23,24 @@ static let identifier = "FeedCollectionViewHeader"
         super.awakeFromNib()
         registerCells()
         setupDelegates()
+        
+//        ApıCaller.shared.getTopStories  { [weak self] result in
+//            switch result {
+//                
+//            case .success(let articles):
+//                self?.headerCollectionViewData = articles.compactMap({
+//                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+//                    
+//                })
+//            case .failure(let error):
+//                print(error)
+//            }
+//            DispatchQueue.main.async {
+//                self?.headerCollectionView.reloadData()
+//            }
+//            
+//        }
+
     }
     
     func registerCells() {
@@ -35,6 +50,13 @@ static let identifier = "FeedCollectionViewHeader"
     func setupDelegates() {
         headerCollectionView.delegate = self
         headerCollectionView.dataSource = self
+    }
+    
+    func setup(datas: [Model]) {
+        self.headerCollectionViewData = datas
+        DispatchQueue.main.async {
+            self.headerCollectionView.reloadData()
+        }
     }
     
 }
@@ -47,7 +69,8 @@ extension FeedCollectionViewHeader: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = headerCollectionView.dequeueReusableCell(withReuseIdentifier: FeedCollectionViewHeaderCell.identifier, for: indexPath) as! FeedCollectionViewHeaderCell
-        
+        let model = headerCollectionViewData[indexPath.item]
+        cell.configure(with: model)
         return cell
     }
     

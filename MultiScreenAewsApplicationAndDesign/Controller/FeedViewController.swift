@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var feedCollectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     
@@ -21,9 +22,12 @@ class ViewController: UIViewController {
     ]
     
     var feedCollectionViewItemsData = [Model]()
+    
+    var isSearchBarVisible = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.isHidden = true
         registerReusableViews()
         setupDelegates()
         
@@ -32,7 +36,7 @@ class ViewController: UIViewController {
                 
             case .success(let articles):
                 self?.feedCollectionViewItemsData = articles.compactMap({
-                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     
                 })
             case .failure(let error):
@@ -43,6 +47,59 @@ class ViewController: UIViewController {
             }
             
         }
+    }
+    
+    func showSearchBar() {
+        searchBar.alpha = 0.0
+        searchBar.isHidden = false
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.searchBar.alpha = 1.0
+            self.view.layoutIfNeeded()
+        })
+        
+        isSearchBarVisible = true
+    }
+
+    func hideSearchBar() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.searchBar.alpha = 0.0
+            self.view.layoutIfNeeded()
+        }) { _ in
+            self.searchBar.isHidden = true
+        }
+        
+        isSearchBarVisible = false
+    }
+    
+    
+    @IBAction func searchingClick(_ sender: Any) {
+        if isSearchBarVisible {
+                hideSearchBar()
+            } else {
+                showSearchBar()
+            }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromBottom, animations: {
+                self.searchBar.isHidden = !self.searchBar.isHidden
+                self.view.layoutIfNeeded()
+            }, completion: nil)
+        searchBar.alpha = 0.0
+            searchBar.isHidden = false
+            
+            UIView.animate(withDuration: 0.5, animations: {
+                self.searchBar.alpha = 1.0
+                self.view.layoutIfNeeded()
+            })
+        
+        
+        
+        
+        
+        
+        
+
+        
     }
     
     func registerReusableViews() {
@@ -57,6 +114,8 @@ class ViewController: UIViewController {
         
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
+        
+        searchBar.delegate = self
     }
     
     
@@ -64,7 +123,10 @@ class ViewController: UIViewController {
 }
 
 //MARK: - Configure CollectionView
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout ,UISearchBarDelegate {
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         switch kind {
@@ -144,7 +206,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
                 switch result {
                 case .success(let articles):
                     self.feedCollectionViewItemsData = articles.compactMap({
-                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+                        Model(title: $0.title ?? "", subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                         
                     })
                     DispatchQueue.main.async {
@@ -156,13 +218,11 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
         case feedCollectionView:
+            feedCollectionView.deselectItem(at: indexPath, animated: true)
             let controller = InfoController.instantiate()
             controller.model = collectionView == feedCollectionView ?
-            feedCollectionViewItemsData[indexPath.item]:Model(title: "Default Title", subtitle: "Default Subtitle", imageURL: nil, imageData: nil, publishedAt: "Default Date")
-            
-
-            
-            
+            feedCollectionViewItemsData[indexPath.item]:Model(title: "Default Title", subtitle: "Default Subtitle", imageURL: nil, imageData: nil, publishedAt: "Default Date", description: description, content: "content")
+                                    
             navigationController?.pushViewController(controller, animated: true)
 
         default:
@@ -173,7 +233,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         switch collectionView {
         case menuCollectionView:
-            var cellWidth: CGFloat = (collectionView.frame.width - 30) / 4
+            let cellWidth: CGFloat = (collectionView.frame.width - 30) / 4
             let cellHeight: CGFloat = collectionView.frame.height
             
 //            let title = menuCollectionViewData[indexPath.item].title
@@ -183,7 +243,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
 //            label.font = .systemFont(ofSize: 16, weight: .semibold)
 //            label.text = title
 //            label.sizeToFit()
-//            
+//
 //            cellWidth += label.frame.width
             
             return CGSize(width: cellWidth, height: cellHeight)
@@ -197,4 +257,60 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     
-}
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            
+            ApıCaller.shared.getTopStories  { [weak self] result in
+                switch result {
+                    
+                case .success(let articles):
+                    self?.feedCollectionViewItemsData = articles.compactMap({
+                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
+                    })
+                case .failure(let error):
+                    print(error)
+                }
+                DispatchQueue.main.async {
+                    self?.feedCollectionView.reloadData()
+                }
+                
+            }
+        }
+            filterContentForSearchText(searchText)
+        }
+
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+            filterContentForSearchText("")
+            
+            
+            
+            
+            
+        }
+
+        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.resignFirstResponder()
+        }
+
+        func filterContentForSearchText(_ searchText: String) {
+            // Arama kriterlerine göre koleksiyonu filtrele
+            let filteredData = feedCollectionViewItemsData.filter { model in
+                return model.title.lowercased().contains(searchText.lowercased())
+            }
+
+            // Filtrelenmiş verileri kullanarak collectionView'ı güncelle
+            feedCollectionViewItemsData = searchText.isEmpty ? feedCollectionViewItemsData : filteredData
+            DispatchQueue.main.async {
+                self.feedCollectionView.reloadData()
+            }
+            
+            
+            
+            
+        }
+    }
+    
+

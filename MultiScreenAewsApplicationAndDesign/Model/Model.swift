@@ -13,14 +13,17 @@ struct Model {
     let imageURL: URL?
     var imageData: Data?
     let publishedAt : String
+    let description: String?
+    let content: String?
     
-    init(title: String, subtitle: String, imageURL: URL?, imageData: Data?, publishedAt: String) {
+    init(title: String, subtitle: String, imageURL: URL?, imageData: Data?, publishedAt: String,  description: String?, content: String?) {
         self.title = title
         self.subtitle = subtitle
         self.imageURL = imageURL
         self.imageData = imageData
         self.publishedAt = publishedAt
-        
+        self.description = description
+        self.content = content
     }
 }
 

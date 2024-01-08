@@ -48,7 +48,7 @@ class ExploreController: UIViewController {
                 
             case .success(let articles):
                 self?.recentNewsCollectionViewData = articles.compactMap({
-                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     
                 })
             case .failure(let error):
@@ -67,7 +67,7 @@ class ExploreController: UIViewController {
                 
             case .success(let articles):
                 self?.recommendentCollectionViewData = articles.compactMap({
-                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     
                 })
             case .failure(let error):
@@ -81,6 +81,65 @@ class ExploreController: UIViewController {
         
         
         
+        
+    }
+    @IBAction func searchHandler(_ sender: UITextField) {
+        
+
+        
+            guard let searchTerm = searchBar.text, !searchTerm.isEmpty else {
+                return
+            }
+            
+            ApıCaller.shared.searchNews(with: searchTerm) { [weak self] result in
+                switch result {
+                case .success(let articles):
+                    self?.recentNewsCollectionViewData = articles.compactMap({
+                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
+                    })
+                    
+                    DispatchQueue.main.async {
+                        self?.recentNewsCollectionView.reloadData()
+                    }
+                    
+                case .failure(let error):
+                    print("Search Error: \(error.localizedDescription)")
+                }
+                DispatchQueue.main.async {
+                    self?.recentNewsCollectionView.reloadData()
+                }
+            }
+        
+        
+        
+        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else {
+            return
+        }
+        
+        ApıCaller.shared.searchNews(with: searchTerm) { [weak self] result in
+            switch result {
+            case .success(let articles):
+                self?.recommendentCollectionViewData = articles.compactMap({
+                    Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
+                })
+                
+                DispatchQueue.main.async {
+                    self?.recentNewsCollectionView.reloadData()
+                }
+                
+            case .failure(let error):
+                print("Search Error: \(error.localizedDescription)")
+            }
+            DispatchQueue.main.async {
+                self?.recommendentCollectionView.reloadData()
+            }
+            
+            
+        }
+        
+
+        
+       
         
     }
     
@@ -104,12 +163,13 @@ class ExploreController: UIViewController {
         explorMenuCollectionView.dataSource = self
         explorMenuCollectionView.delegate = self
         
+        searchBar.delegate = self
     }
     
     
     
 }
-extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout , UITextFieldDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
             
@@ -126,6 +186,20 @@ extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegat
         }
         
     }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        searchHandler(textField)
+        return true
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.resignFirstResponder() // Klavyeyi kapat
+    }
+
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -157,6 +231,24 @@ extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
+        case recommendentCollectionView:
+            let controller = InfoController.instantiate()
+            controller.model = collectionView == recommendentCollectionView ?
+            recommendentCollectionViewData[indexPath.item]:Model(title: "Default Title", subtitle: "Default Subtitle", imageURL: nil, imageData: nil, publishedAt: "Default Date", description: description, content: "content")
+                                    
+            navigationController?.pushViewController(controller, animated: true)
+            
+        case recentNewsCollectionView:
+            let controller = InfoController.instantiate()
+            controller.model = collectionView == recentNewsCollectionView ?
+            recentNewsCollectionViewData[indexPath.item]:Model(title: "Default Title", subtitle: "Default Subtitle", imageURL: nil, imageData: nil, publishedAt: "Default Date", description: description, content: "content")
+                                    
+            navigationController?.pushViewController(controller, animated: true)
+            
+            
+            
+            
+            
         case explorMenuCollectionView:
             explorMenuCollectionView.deselectItem(at: indexPath, animated: true)
             let selectedMenuType = explorMenuCollectionViewData[indexPath.item].type
@@ -164,10 +256,10 @@ extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegat
                 switch result {
                 case .success(let articles):
                     self?.recentNewsCollectionViewData = articles.compactMap({
-                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     })
                     self?.recommendentCollectionViewData = articles.compactMap({
-                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date")
+                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     })
                     
                     DispatchQueue.main.async {
@@ -180,9 +272,15 @@ extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegat
                 case .failure(let error):
                     print(error)
                 }
+                
+                
             }
         default: break
+            
+            
         }
+        
+    
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

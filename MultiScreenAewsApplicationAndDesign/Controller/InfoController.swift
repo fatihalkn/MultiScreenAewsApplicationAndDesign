@@ -19,19 +19,38 @@ class InfoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        feedDetail()
+        configure(with: model)
 
         
     }
     
-    func feedDetail() {
-       titleLbl.text = model.title
-       textLbl.text = model.subtitle
-       descLbl.text = model.subtitle
-       historyLbl.text = model.publishedAt
-       detailLbl.text = model.subtitle
-       
-       
-   }
+    func configure(with model: Model) {
+        titleLbl.text = model.title
+        textLbl.text = model.subtitle
+        descLbl.text = model.subtitle
+        historyLbl.text = model.publishedAt
+        detailLbl.text = model.content
+        
+        if let data = model.imageData {
+            infoİmageView.image = UIImage(data: data)
+        } else  if let url = model.imageURL {
+            //fetch
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self?.infoİmageView.image = UIImage(data: data)
+                }
+            }.resume()
+            
+            
+        }
+    }
+    
+    
+    
+    
+    
     
 }

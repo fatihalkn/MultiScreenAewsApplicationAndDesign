@@ -37,7 +37,6 @@ static let identifier = "FeedCollectionViewHeaderCell"
                 guard let data = data, error == nil else {
                     return
                 }
-                viewHeader.imageData = data
                 DispatchQueue.main.async {
                     self?.newsImageView.image = UIImage(data: data)
                 }

@@ -30,14 +30,14 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet Microsoft Office’s new default font: Aptos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yt-Dw-5fv">
-                        <rect key="frame" x="5" y="132" width="152" height="61"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet Microsoft Office’s new default font: Aptos" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yt-Dw-5fv">
+                        <rect key="frame" x="5" y="132" width="152" height="40.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                         <color key="textColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jul 14, 2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8r-Wq-nKK">
-                        <rect key="frame" x="5" y="198" width="64.333333333333329" height="13.333333333333343"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jul 14, 2023" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8r-Wq-nKK">
+                        <rect key="frame" x="5" y="177.66666666666666" width="70" height="13.333333333333343"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -51,11 +51,12 @@
                 <constraint firstItem="rQz-Wq-wys" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.945055" id="1Sh-HJ-bnl"/>
                 <constraint firstItem="8yt-Dw-5fv" firstAttribute="top" secondItem="gVB-50-adt" secondAttribute="bottom" constant="10" id="3YS-Ae-4Cv"/>
                 <constraint firstItem="x8r-Wq-nKK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="40Q-dA-6rI"/>
-                <constraint firstAttribute="trailing" secondItem="x8r-Wq-nKK" secondAttribute="trailing" constant="112.67" id="FAv-pp-ez4"/>
+                <constraint firstAttribute="trailing" secondItem="x8r-Wq-nKK" secondAttribute="trailing" constant="107" id="FAv-pp-ez4"/>
                 <constraint firstItem="rQz-Wq-wys" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="J6E-Sb-xh1"/>
                 <constraint firstItem="rQz-Wq-wys" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.391304" id="JOa-l0-4ji"/>
                 <constraint firstItem="x8r-Wq-nKK" firstAttribute="top" secondItem="8yt-Dw-5fv" secondAttribute="bottom" constant="5" id="KAq-1L-xiK"/>
                 <constraint firstAttribute="trailing" secondItem="rQz-Wq-wys" secondAttribute="trailing" constant="5" id="YPk-63-zaR"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="x8r-Wq-nKK" secondAttribute="bottom" constant="10" id="ZB8-VD-z2Q"/>
                 <constraint firstItem="8yt-Dw-5fv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="hDm-UO-Xha"/>
                 <constraint firstAttribute="trailing" secondItem="8yt-Dw-5fv" secondAttribute="trailing" constant="25" id="jKj-QP-h6i"/>
                 <constraint firstItem="rQz-Wq-wys" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="p7P-wj-OEM"/>
@@ -70,7 +71,7 @@
                 <outlet property="textLbl" destination="8yt-Dw-5fv" id="glB-W7-CAg"/>
                 <outlet property="titleLbl" destination="gVB-50-adt" id="JPI-dB-4zP"/>
             </connections>
-            <point key="canvasLocation" x="248.85496183206106" y="21.83098591549296"/>
+            <point key="canvasLocation" x="513" y="15"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -109,7 +109,7 @@ class ExploreController: UIViewController {
     
     
 }
-extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
             
@@ -185,7 +185,16 @@ extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegat
         }
     }
 
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch collectionView {
+        case recommendentCollectionView, recentNewsCollectionView:
+            let cellWidth = (collectionView.frame.width - 10) / 2
+            let cellHeight = collectionView.frame.height
+            return CGSize(width: cellWidth, height: cellHeight)
+        default:
+            return CGSize.init()
+        }
+    }
     
 }
 

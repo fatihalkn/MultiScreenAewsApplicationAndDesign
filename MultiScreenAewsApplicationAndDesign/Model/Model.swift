@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Model {
+struct Model {
     let title: String
     let subtitle: String
     let imageURL: URL?

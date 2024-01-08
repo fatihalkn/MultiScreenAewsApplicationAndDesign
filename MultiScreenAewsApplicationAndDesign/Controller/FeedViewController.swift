@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var feedCollectionView: UICollectionView!
     
+    
+    
     var menuCollectionViewData: [MenuModel] = [
         .init(type: .tech, title: "Tech"),
         .init(type: .science, title: "Science"),
@@ -154,7 +156,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             }
             
         case feedCollectionView:
-            break
+            let controller = InfoController.instantiate()
+            controller.model = collectionView == feedCollectionView ?
+            feedCollectionViewItemsData[indexPath.item]:Model(title: "Default Title", subtitle: "Default Subtitle", imageURL: nil, imageData: nil, publishedAt: "Default Date")
+            
+
+            
+            
+            navigationController?.pushViewController(controller, animated: true)
+
         default:
             break
         }

@@ -41,7 +41,6 @@ class RecentCollectionViewCell: UICollectionViewCell {
                 guard let data = data, error == nil else {
                     return
                 }
-                viewModel.imageData = data
                 DispatchQueue.main.async {
                     self?.imageView.image = UIImage(data: data)
                 }

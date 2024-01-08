@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D17A1AB2B499A4C009A1B12 /* ApıCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17A1AA2B499A4C009A1B12 /* ApıCaller.swift */; };
 		3D17A1AE2B49A3F2009A1B12 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17A1AD2B49A3F2009A1B12 /* Model.swift */; };
-		3D17A1B02B49CD34009A1B12 /* SaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17A1AF2B49CD34009A1B12 /* SaveController.swift */; };
+		3D17A1B02B49CD34009A1B12 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17A1AF2B49CD34009A1B12 /* InfoController.swift */; };
 		3D17A1B22B4AC482009A1B12 /* ExploreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17A1B12B4AC482009A1B12 /* ExploreController.swift */; };
 		3D17A1B72B4ACD6F009A1B12 /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D17A1B52B4ACD6F009A1B12 /* RecentCollectionViewCell.swift */; };
 		3D17A1B82B4ACD6F009A1B12 /* RecentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D17A1B62B4ACD6F009A1B12 /* RecentCollectionViewCell.xib */; };
@@ -23,6 +23,7 @@
 		3D75F9E62B4AD5EE00F77F59 /* RecommendetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D75F9E42B4AD5EE00F77F59 /* RecommendetCollectionViewCell.xib */; };
 		3D75F9E92B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D75F9E72B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.swift */; };
 		3D75F9EA2B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D75F9E82B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.xib */; };
+		3D75F9ED2B4BD76900F77F59 /* Extention+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D75F9EC2B4BD76900F77F59 /* Extention+UIViewController.swift */; };
 		3D8815102B496825006DB6F7 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D88150E2B496825006DB6F7 /* MenuCollectionViewCell.swift */; };
 		3D8815112B496825006DB6F7 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D88150F2B496825006DB6F7 /* MenuCollectionViewCell.xib */; };
 		3D88151A2B49707A006DB6F7 /* FeedCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8815182B49707A006DB6F7 /* FeedCollectionViewHeader.swift */; };
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		3D17A1AA2B499A4C009A1B12 /* ApıCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApıCaller.swift"; sourceTree = "<group>"; };
 		3D17A1AD2B49A3F2009A1B12 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		3D17A1AF2B49CD34009A1B12 /* SaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveController.swift; sourceTree = "<group>"; };
+		3D17A1AF2B49CD34009A1B12 /* InfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		3D17A1B12B4AC482009A1B12 /* ExploreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreController.swift; sourceTree = "<group>"; };
 		3D17A1B52B4ACD6F009A1B12 /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D17A1B62B4ACD6F009A1B12 /* RecentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecentCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -52,6 +53,7 @@
 		3D75F9E42B4AD5EE00F77F59 /* RecommendetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendetCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D75F9E72B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D75F9E82B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExploreMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		3D75F9EC2B4BD76900F77F59 /* Extention+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIViewController.swift"; sourceTree = "<group>"; };
 		3D88150E2B496825006DB6F7 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		3D88150F2B496825006DB6F7 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		3D8815182B49707A006DB6F7 /* FeedCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewHeader.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		3D5CCC142B49600D00850A71 /* MultiScreenAewsApplicationAndDesign */ = {
 			isa = PBXGroup;
 			children = (
+				3D75F9EB2B4BD74300F77F59 /* Extention */,
 				3D17A1AC2B49A3D9009A1B12 /* Model */,
 				3D17A1A92B499A32009A1B12 /* Apı */,
 				3D8815122B496834006DB6F7 /* Controller */,
@@ -136,6 +139,14 @@
 				3D5CCC232B49600F00850A71 /* Info.plist */,
 			);
 			path = MultiScreenAewsApplicationAndDesign;
+			sourceTree = "<group>";
+		};
+		3D75F9EB2B4BD74300F77F59 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				3D75F9EC2B4BD76900F77F59 /* Extention+UIViewController.swift */,
+			);
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		3D88150D2B4967E3006DB6F7 /* Cells */ = {
@@ -158,7 +169,7 @@
 			children = (
 				3D5CCC192B49600D00850A71 /* FeedViewController.swift */,
 				3D17A1B12B4AC482009A1B12 /* ExploreController.swift */,
-				3D17A1AF2B49CD34009A1B12 /* SaveController.swift */,
+				3D17A1AF2B49CD34009A1B12 /* InfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -291,12 +302,13 @@
 				3D88151A2B49707A006DB6F7 /* FeedCollectionViewHeader.swift in Sources */,
 				3D8815222B497549006DB6F7 /* FeedCollectionViewCell.swift in Sources */,
 				3D17A1AB2B499A4C009A1B12 /* ApıCaller.swift in Sources */,
-				3D17A1B02B49CD34009A1B12 /* SaveController.swift in Sources */,
+				3D17A1B02B49CD34009A1B12 /* InfoController.swift in Sources */,
 				3D5CCC1A2B49600D00850A71 /* FeedViewController.swift in Sources */,
 				3D17A1AE2B49A3F2009A1B12 /* Model.swift in Sources */,
 				3D5CCC162B49600D00850A71 /* AppDelegate.swift in Sources */,
 				3D88151E2B497112006DB6F7 /* FeedCollectionViewHeaderCell.swift in Sources */,
 				3D75F9E92B4ADA4000F77F59 /* ExploreMenuCollectionViewCell.swift in Sources */,
+				3D75F9ED2B4BD76900F77F59 /* Extention+UIViewController.swift in Sources */,
 				3D17A1B22B4AC482009A1B12 /* ExploreController.swift in Sources */,
 				3D17A1B72B4ACD6F009A1B12 /* RecentCollectionViewCell.swift in Sources */,
 				3D5CCC182B49600D00850A71 /* SceneDelegate.swift in Sources */,

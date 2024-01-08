@@ -42,7 +42,7 @@ class FeedCollectionViewCell: UICollectionViewCell {
                 guard let data = data, error == nil else {
                     return
                 }
-                viewModel.imageData = data
+                
                 DispatchQueue.main.async {
                     self?.imgView.image = UIImage(data: data)
                 }

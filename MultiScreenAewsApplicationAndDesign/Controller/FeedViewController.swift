@@ -10,8 +10,6 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var feedCollectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     
     
     var menuCollectionViewData: [MenuModel] = [
@@ -23,11 +21,9 @@ class ViewController: UIViewController {
     
     var feedCollectionViewItemsData = [Model]()
     
-    var isSearchBarVisible = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.isHidden = true
         registerReusableViews()
         setupDelegates()
         
@@ -49,58 +45,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func showSearchBar() {
-        searchBar.alpha = 0.0
-        searchBar.isHidden = false
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.searchBar.alpha = 1.0
-            self.view.layoutIfNeeded()
-        })
-        
-        isSearchBarVisible = true
-    }
 
-    func hideSearchBar() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.searchBar.alpha = 0.0
-            self.view.layoutIfNeeded()
-        }) { _ in
-            self.searchBar.isHidden = true
-        }
-        
-        isSearchBarVisible = false
-    }
+
     
     
-    @IBAction func searchingClick(_ sender: Any) {
-        if isSearchBarVisible {
-                hideSearchBar()
-            } else {
-                showSearchBar()
-            }
-        
-        UIView.animate(withDuration: 0.5, delay: 0, options: .transitionFlipFromBottom, animations: {
-                self.searchBar.isHidden = !self.searchBar.isHidden
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-        searchBar.alpha = 0.0
-            searchBar.isHidden = false
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.searchBar.alpha = 1.0
-                self.view.layoutIfNeeded()
-            })
-        
-        
-        
-        
-        
-        
-        
-
-        
-    }
+    
     
     func registerReusableViews() {
         menuCollectionView.register(UINib(nibName: MenuCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MenuCollectionViewCell.identifier)
@@ -115,7 +64,6 @@ class ViewController: UIViewController {
         feedCollectionView.delegate = self
         feedCollectionView.dataSource = self
         
-        searchBar.delegate = self
     }
     
     
@@ -235,17 +183,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         case menuCollectionView:
             let cellWidth: CGFloat = (collectionView.frame.width - 30) / 4
             let cellHeight: CGFloat = collectionView.frame.height
-            
-//            let title = menuCollectionViewData[indexPath.item].title
-//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: .greatestFiniteMagnitude, height: cellHeight))
-//            label.numberOfLines = 1
-//            label.textAlignment = .center
-//            label.font = .systemFont(ofSize: 16, weight: .semibold)
-//            label.text = title
-//            label.sizeToFit()
-//
-//            cellWidth += label.frame.width
-            
             return CGSize(width: cellWidth, height: cellHeight)
         case feedCollectionView:
             let cellWidth: CGFloat = collectionView.frame.width - 40

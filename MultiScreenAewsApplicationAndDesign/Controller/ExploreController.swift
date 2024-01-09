@@ -259,7 +259,7 @@ extension ExploreController: UICollectionViewDataSource, UICollectionViewDelegat
                         Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     })
                     self?.recommendentCollectionViewData = articles.compactMap({
-                        Model(title: $0.title!, subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
+                        Model(title: $0.title! , subtitle: $0.description ?? "No Discription", imageURL: URL(string: $0.urlToImage ?? ""), imageData: nil, publishedAt: $0.publishedAt ?? "No Date", description: $0.description, content: $0.content)
                     })
                     
                     DispatchQueue.main.async {

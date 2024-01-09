@@ -15,9 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uF2-bb-gp8">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uF2-bb-gp8">
                                 <rect key="frame" x="0.0" y="103" width="393" height="44"/>
-                                <color key="backgroundColor" red="0.1176470518" green="0.1176470518" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="avu-n0-vhI"/>
                                 </constraints>
@@ -40,16 +40,6 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <searchBar contentMode="scaleAspectFill" semanticContentAttribute="forceLeftToRight" placeholder="Search..." id="HRV-MK-Hz5">
-                                <rect key="frame" x="-1" y="232" width="393" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="qOj-LY-cXe"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -64,31 +54,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZKZ-xT-Vha">
-                        <leftBarButtonItems>
-                            <barButtonItem id="uV7-iL-sPh"/>
-                            <barButtonItem title="Item" image="filemenu.and.cursorarrow" catalog="system" id="QEQ-Pi-w8Q">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="person.circle" catalog="system" id="woi-DI-Z7i">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="bell" catalog="system" id="Xbx-3e-0wd">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="LCT-uq-VG5">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <action selector="searchingClick:" destination="BYZ-38-t0r" id="HBc-17-LCh"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" id="uV7-iL-sPh"/>
                     </navigationItem>
                     <connections>
                         <outlet property="feedCollectionView" destination="M3z-Ba-NGn" id="sKe-kr-uY7"/>
                         <outlet property="menuCollectionView" destination="uF2-bb-gp8" id="AhY-T9-uoQ"/>
-                        <outlet property="searchBar" destination="HRV-MK-Hz5" id="uga-rn-4Zk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,7 +79,6 @@
                     <connections>
                         <segue destination="YA3-ag-76i" kind="relationship" relationship="viewControllers" id="dQ4-dc-4kO"/>
                         <segue destination="vIp-Bj-nZ3" kind="relationship" relationship="viewControllers" id="V9z-hc-Ddl"/>
-                        <segue destination="65r-3j-F2F" kind="relationship" relationship="viewControllers" id="INe-v2-lXY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pas-S8-7ci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -127,7 +96,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eR9-Gb-AnU">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.1176470518" green="0.1176470518" blue="0.1176470518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -149,6 +118,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9pW-ke-Dab">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -171,7 +141,6 @@
                                 <rect key="frame" x="15" y="108" width="363" height="34"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="363" id="UGA-Ag-1oT"/>
                                     <constraint firstAttribute="height" constant="34" id="cMO-PJ-Rk6"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -181,7 +150,7 @@
                                     <action selector="searchHandler:" destination="iJy-AQ-gy6" eventType="editingDidEnd" id="ely-7K-rwf"/>
                                 </connections>
                             </textField>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mmC-Ye-aDJ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mmC-Ye-aDJ">
                                 <rect key="frame" x="0.0" y="147" width="393" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -252,9 +221,9 @@
                         <viewLayoutGuide key="safeArea" id="2hi-cS-sVz"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9k3-hi-b9v" firstAttribute="top" secondItem="2hi-cS-sVz" secondAttribute="top" constant="5" id="3oi-sz-xLx"/>
                             <constraint firstItem="vqv-Gl-2L6" firstAttribute="trailing" secondItem="2hi-cS-sVz" secondAttribute="trailing" id="CfH-8V-GDR"/>
                             <constraint firstItem="2hi-cS-sVz" firstAttribute="trailing" secondItem="9k3-hi-b9v" secondAttribute="trailing" constant="15" id="GMS-dJ-E4R"/>
+                            <constraint firstItem="9k3-hi-b9v" firstAttribute="top" secondItem="2hi-cS-sVz" secondAttribute="top" constant="5" id="IRZ-tH-aCJ"/>
                             <constraint firstItem="vqv-Gl-2L6" firstAttribute="top" secondItem="kU7-fc-jxM" secondAttribute="bottom" constant="6" id="M7z-Zh-eiC"/>
                             <constraint firstItem="kU7-fc-jxM" firstAttribute="leading" secondItem="2hi-cS-sVz" secondAttribute="leading" id="VPN-ZX-SF2"/>
                             <constraint firstItem="mmC-Ye-aDJ" firstAttribute="leading" secondItem="2hi-cS-sVz" secondAttribute="leading" id="Vdz-yu-dwK"/>
@@ -274,23 +243,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zM1-fN-h6S">
-                        <leftBarButtonItems>
-                            <barButtonItem id="udH-bg-6aJ"/>
-                            <barButtonItem title="Item" image="filemenu.and.cursorarrow" catalog="system" id="9Um-hI-slC">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="person.circle" catalog="system" id="PtQ-M6-nPC">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="bell" catalog="system" id="kra-Kr-ql3">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="UJC-6P-Inu">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" id="udH-bg-6aJ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="explorMenuCollectionView" destination="mmC-Ye-aDJ" id="1IZ-z3-zTR"/>
@@ -356,7 +309,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.1725490093" green="0.1686274707" blue="0.1647058874" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstItem="KBX-sG-Obw" firstAttribute="leading" secondItem="cyz-F7-T0W" secondAttribute="leading" constant="16" id="13Z-a5-yQf"/>
                                             <constraint firstItem="KBX-sG-Obw" firstAttribute="top" secondItem="cyz-F7-T0W" secondAttribute="top" constant="16" id="4dZ-Ue-D2T"/>
@@ -365,6 +318,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="cyz-F7-T0W" firstAttribute="leading" secondItem="iQu-Qn-lPz" secondAttribute="leading" id="488-NS-8CC"/>
                                     <constraint firstItem="cyz-F7-T0W" firstAttribute="trailing" secondItem="iQu-Qn-lPz" secondAttribute="trailing" id="PoM-bf-V7W"/>
@@ -416,69 +370,9 @@
             </objects>
             <point key="canvasLocation" x="2671" y="675"/>
         </scene>
-        <!--Profile-->
-        <scene sceneID="7sS-vX-Fvr">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="65r-3j-F2F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="tD3-nz-HhT">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2py-pP-AwX">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="srg-xB-tem" kind="relationship" relationship="rootViewController" id="XjO-r0-Uuk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3zl-om-za2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="172" y="1372"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="fcB-4d-Aff">
-            <objects>
-                <viewController id="srg-xB-tem" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="f8m-K3-uFY">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="fRg-XE-po5"/>
-                        <color key="backgroundColor" red="0.066666662690000003" green="0.066666662690000003" blue="0.066666662690000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Q08-Yn-3pe">
-                        <leftBarButtonItems>
-                            <barButtonItem id="hGV-ZS-s9a"/>
-                            <barButtonItem title="Item" image="filemenu.and.cursorarrow" catalog="system" id="9ID-hW-ElM">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Item" image="person.circle" catalog="system" id="hge-Fd-avy">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="bell" catalog="system" id="Ry8-5b-p77">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="PTu-jS-9y4">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OWd-gl-bZj" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1030" y="1372"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="bell" catalog="system" width="125" height="128"/>
-        <image name="filemenu.and.cursorarrow" catalog="system" width="128" height="100"/>
         <image name="location" catalog="system" width="128" height="119"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
-        <image name="person" catalog="system" width="128" height="121"/>
-        <image name="person.circle" catalog="system" width="128" height="123"/>
     </resources>
 </document>
